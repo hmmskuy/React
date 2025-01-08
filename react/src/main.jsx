@@ -6,9 +6,10 @@ import LoginStatus from './MT-8/Tugas praktek.jsx'
 import ArrayState from './MT-8/useState1.jsx'
 import SimpleCalculator from './MT-8/Tugas praktek 2.jsx'
 import SortList from './MT-8/useState1.jsx'
+import Card2 from './MT-9/Praktek MT-9.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <SortList/>
+    <Card2/>
   </StrictMode>,
 )
