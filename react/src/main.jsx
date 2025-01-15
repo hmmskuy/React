@@ -9,9 +9,10 @@ import SortList from './MT-8/useState1.jsx'
 import Card2 from './MT-9/Praktek MT-9.jsx'
 import TextLogger from './MT-10/Tugas Praktek 10 bgn 3.jsx'
 import CountLogger from './MT-10/Tugas praktek 10 bgn 2 .jsx'
+import ThemeSwitcher from './MT-11/Praktek.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CountLogger/>
+    <ThemeSwitcher/>
   </StrictMode>,
 )

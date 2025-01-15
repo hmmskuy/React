@@ -19,3 +19,7 @@ function Counter() {
 }
 
 export default Counter;
+
+
+
+// NB : Fungsi dari useState adalah untuk menyimpan nilai  dan memperbarui sebuah nilai State 
