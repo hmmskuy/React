@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from 'react';
 
 const TextLogger = () => {
-  // State untuk menyimpan nilai teks
+  // Mengelola state untuk menyimpan nilai teks yang dimasukkan
   const [text, setText] = useState('');
-  
-  // useEffect untuk melacak perubahan nilai text
+
+  // Menggunakan useEffect untuk melacak perubahan pada nilai text
   useEffect(() => {
-    console.log(`Teks berubah menjadi: ${text}`);
-  }, [text]); // Efek hanya dijalankan ketika nilai text berubah
+    if (text) {
+      console.log(`Teks berubah menjadi: ${text}`);
+    }
+  }, [text]); // Efek hanya dijalankan ketika 'text' berubah
 
-  // Fungsi untuk menangani perubahan input teks
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
-
-  // Fungsi untuk memperbarui teks sesuai dengan input
+  // Fungsi untuk memperbarui teks menggunakan tombol "Update Teks"
   const handleUpdateText = () => {
-    setText(text); // Pembaruan teks dengan nilai saat ini
+    setText('Teks telah diperbarui');
   };
 
   return (
     <div>
-      <input 
-        type="text" 
-        value={text} 
-        onChange={handleChange} 
-        placeholder="Masukkan teks"
+      <h1>Text Logger</h1>
+      {/* Input untuk memasukkan teks */}
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)} // Menangani perubahan teks di input
+        placeholder="Masukkan teks..."
       />
+      {/* Menampilkan teks yang dimasukkan */}
       <p>{text}</p>
+      {/* Tombol untuk memperbarui teks */}
       <button onClick={handleUpdateText}>Update Teks</button>
     </div>
   );
