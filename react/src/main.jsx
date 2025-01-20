@@ -10,9 +10,11 @@ import Card2 from './MT-9/Praktek MT-9.jsx'
 import TextLogger from './MT-10/Tugas Praktek 10 bgn 3.jsx'
 import CountLogger from './MT-10/Tugas praktek 10 bgn 2 .jsx'
 import ThemeSwitcher from './MT-11/Praktek.jsx'
+import APPS from './MT-13/T2.jsx'
+import CobaAxios from './MT-13/T1.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeSwitcher/>
+    <CobaAxios/>
   </StrictMode>,
 )
