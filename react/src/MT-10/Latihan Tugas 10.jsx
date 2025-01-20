@@ -1,42 +1,48 @@
-//  Effect tanpa Dependency ( Jalankan Setiap Render)
-import { useState } from "react";
-import React, {useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 
-export default function Counter() {
-    const [count, setCount] = useState (0);
-    
+// export default function Counter () {
+
+//     const [count, setCount] = useState(0)
+
+//     useEffect(() => {
+//         console.log(`Count Saat Ini  ${count}`);
+        
+// });     
+
+//     return(
+//         <div>
+//             <p> Count : {count}</p>
+//             <button onClick={( ) => setCount(count + 1)}>Tambah</button>
+//         </div>
+//     )
+
+// }
+
+// Dengan Dependency
+
+export default function Withdependency () {
+    const [count, setCount] = useState(0)
+    const [text, setText] = useState("")
+
     useEffect(() => {
-        console.log ('count saat ini: ${count}');
-    });
+        console.log(`Count Berubah :  ${count}`);
+        console.log(`text Berubah :  ${text}`);
+    }, [count,text]);
+ 
 
-    return (
+    return(
         <div>
-            <p> Count: {count}</p>
-            <button onClick={() => setCount(count + 1)}> Tambah</button>
+            <p>Count : {count}</p>
+            <p className="border ">Nama anda adalah : {text}</p>
+            <button onClick={() => setCount(count + 1)}>Tambah</button>
+            <br />
+            <input type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Masukkan Text"
+            className="border rounded-md"
+            />
+         
         </div>
-    );
-}
-
-// EFek dengan Dependency ( Jalankan Saat Dependency Berubah )
-function WithDependency(){
-    const [ count, setCount] = useState(0);
-    const [ text, setText] = useState("");
-
-    useEffect(() => {
-        console.log ('Count berubah: ${count}');
-}, [count]); // Hanya akan di panggil Ulang jika 'count' berubah.
-
-return (
-    <div>
-    <p> Count: {count}</p>
-    <button onClick={() => setCount(count + 1)}> Tambah</button>
-        <br />
-    <input
-     type="text" 
-     value={text}
-     onChange={(e) => setText(e.target.value)}
-     placeholder="Ketik Sesuatu..."
-     />
-    </div>
-);
+    )
 }

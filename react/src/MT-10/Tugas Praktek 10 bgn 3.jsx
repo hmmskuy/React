@@ -1,37 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
-const TextLogger = () => {
-  // Mengelola state untuk menyimpan nilai teks yang dimasukkan
-  const [text, setText] = useState('');
+export default function TextLogger () {
+    const [text, setText] = useState("")
+    const [updateText, setUpdateText] = useState("")
 
-  // Menggunakan useEffect untuk melacak perubahan pada nilai text
-  useEffect(() => {
-    if (text) {
-      console.log(`Teks berubah menjadi: ${text}`);
+    const UpdateText = () => {
+        setUpdateText(text);
     }
-  }, [text]); // Efek hanya dijalankan ketika 'text' berubah
 
-  // Fungsi untuk memperbarui teks menggunakan tombol "Update Teks"
-  const handleUpdateText = () => {
-    setText('Teks telah diperbarui');
-  };
+    useEffect(() => {
+        console.log(`Text berubah Menjadi ${text}`);
+    }, [text])
 
-  return (
-    <div>
-      <h1>Text Logger</h1>
-      {/* Input untuk memasukkan teks */}
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)} // Menangani perubahan teks di input
-        placeholder="Masukkan teks..."
-      />
-      {/* Menampilkan teks yang dimasukkan */}
-      <p>{text}</p>
-      {/* Tombol untuk memperbarui teks */}
-      <button onClick={handleUpdateText}>Update Teks</button>
-    </div>
-  );
-};
+    return(
+        <div>
+            <p className='text-center border m-4'>Text Saat Ini : {updateText}</p>
+            <input type="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Masukkan Text" 
+            className='border m-4 rounded-md text-center'></input>
+            <button onClick={UpdateText} className='border m-4 bg-blue-500 rounded-lg p-2'>Update text</button>
 
-export default TextLogger;
+        </div>
+    )
+}

@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
-const CountLogger = () => {
-  // State untuk menyimpan angka
-  const [count, setCount] = useState(0);
+export default function CountLogger () {
+    const [count, setCount] = useState(0)
 
-  // useEffect dengan array dependency berisi count
-  useEffect(() => {
-    console.log(`Count berubah menjadi: ${count}`);
-  }, [count]); // Efek ini hanya dijalankan ketika count berubah
+    useEffect(() => {
+        console.log(`Count berubah Menjadi ${count}`);
+    }, [count,text])
 
-  // Fungsi untuk menangani penambahan angka
-  const handleClick = () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <div>
-      <p>Angka: {count}</p>
-      <button onClick={handleClick}>Tambah</button>
-    </div>
-  );
-};
-
-export default CountLogger;
+    return(
+        <div>
+            <p>Count Saat Ini {count}</p>
+            <button onClick={() => setCount(count + 1)}>Tambah</button>
+        </div>
+    )
+}
