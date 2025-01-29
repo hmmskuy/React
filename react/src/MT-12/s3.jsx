@@ -67,7 +67,7 @@ const router = createBrowserRouter([
 ]);
 
 // Komponen Utama
-const App = () => {
+const App3 = () => {
   return <RouterProvider router={router} />;
 };
 

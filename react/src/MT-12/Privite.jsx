@@ -58,7 +58,7 @@ const router = createBrowserRouter([
 ]);
 
 // Komponen Utama Aplikasi
-function App() {
+function App1() {
   return <RouterProvider router={router} />;
 }
 
@@ -81,4 +81,4 @@ const styles = {
   },
 };
 
-export default App;
+export default App1;

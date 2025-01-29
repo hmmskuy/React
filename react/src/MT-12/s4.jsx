@@ -64,7 +64,7 @@ const router = createBrowserRouter([
 ]);
 
 // Komponen Utama
-const App = () => {
+const App4 = () => {
   return <RouterProvider router={router} />;
 };
 
@@ -106,4 +106,4 @@ const styles = {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
-export default App;
+export default App4;
