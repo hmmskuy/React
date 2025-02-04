@@ -18,12 +18,14 @@ export default function AxiosStore2() {
 
   const updateCart = (title, price, change) => {
     setCart((prevCart) => {
-      const currentQuantity = prevCart[title]?.quantity || 0;
-      const newQuantity = currentQuantity + change;
+      const currentQuantity = prevCart[title]?.quantity || 0; // prevcart mewakili keranjang belanja yang berisi item-item yang telah ditambahkan sebelumnya.
+      // prevCart[title]?.quantity berusaha mengambil nilai quantity dari item yang sesuai dengan title di dalam objek prevCart.
+      const newQuantity = currentQuantity + change;   // newQuantity untuk menyimpan hasil dari penjumlahan currenQuantity
 
-      if (newQuantity <= 0) {
-        const { [title]: _, ...rest } = prevCart;
-        return rest;
+      if (newQuantity <= 0) { // newQuantity berfungsi untuk mengecek jika kuantitas item (setelah perubahan ) menjadi 0 atau negative
+        const { [title]: _, ...rest } = prevCart; //Menggunakan destructuring untuk menghapus item dengan nama title dari objek prevCart.
+        // ...rest: Mengambil semua properti lainnya dari objek prevCart selain item yang dihapus.
+        return rest;//  Mengembalikan objek keranjang baru tanpa item yang dihapus.
       }
 
       return {

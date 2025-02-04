@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AxiosStore2 from "./jwt-map";
-import LoginMas from "./jwt-login";
-import { ProductDetail } from "./jwt-map";
+import AxiosStore2 from "./jwt map";
+import LoginMas from "./jwt login";
+import { ProductDetail } from "./jwt map";
 import { Navigate } from "react-router-dom";
-import ProtectedRoute from "./jwt-protect";
+import ProtectedRoute from "./jwt protect";
 
 const router = createBrowserRouter([
   {
