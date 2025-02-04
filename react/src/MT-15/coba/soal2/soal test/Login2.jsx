@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
-const LoginAxios = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const SimpleUserForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [responsData, setResponsData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -11,47 +11,48 @@ const LoginAxios = () => {
     e.preventDefault();
 
     axios
-      .post("https://fakestoreapi.com/auth/login", {
-        username,
-        password,
+      .post("https://jsonplaceholder.typicode.com/users", {
+        name,
+        email,
       })
       .then((response) => {
         setResponsData(response.data);
-        setError(null);
+        setError(null); // Reset error jika berhasil
       })
       .catch((error) => {
         setError(error.message);
-        setResponsData(null);
+        setResponsData(null); // Reset responsData jika gagal
       });
   };
 
   return (
     <div>
-      <h1>Login Form</h1>
+      <h1>Simple User Information</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="email">Email:</label>
           <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">Submit</button>
       </form>
+
+      {/* Conditional Rendering */}
       {responsData && (
         <div>
-          <h1>Login Success !!!</h1>
           <h2>Response From Server:</h2>
           <pre>{JSON.stringify(responsData, null, 2)}</pre>
         </div>
@@ -67,4 +68,4 @@ const LoginAxios = () => {
   );
 };
 
-export default LoginAxios;
+export default SimpleUserForm;

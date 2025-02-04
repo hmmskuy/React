@@ -1,14 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import AxiosStore2 from "./soal2map";
-import LoginMas from "./Login2";
-import { ProductDetail } from "./soal2map";
+import AxiosStore2 from "./jwt-map";
+import LoginMas from "./jwt-login";
+import { ProductDetail } from "./jwt-map";
 import { Navigate } from "react-router-dom";
-import ProtectedRoute from "./protect";
+import ProtectedRoute from "./jwt-protect";
 
 const router = createBrowserRouter([
   {
-    path: "/Login",
+    path: "/login",
     element: <LoginMas />,
   },
   {
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-function Axioshop2() {
+function Axioshop16() {
   return <RouterProvider router={router} />;
 }
 
-export default Axioshop2;
+export default Axioshop16;
