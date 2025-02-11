@@ -28,7 +28,10 @@ const UpdateUser = () => {
     setFormData({
       name: "",
       email: "",
-      avatar: "",
+      avatar: "",      
     });
+    <form onSubmit =(handleUpdateUser)>
+  input
+  </form>
   };
 };
